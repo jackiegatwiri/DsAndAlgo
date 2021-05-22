@@ -14,9 +14,20 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        SlidingWindow slidingWindow = new SlidingWindow();
-//        System.out.println(slidingWindow.longestSubstring("AAAHHIBC", 2));
-        Strings s = new Strings();
+        Arrayss arrayss = new Arrayss();
+        arrayss.infiniteArray(new int[]{3,5,6,7,8,10,12,14,15,16,17,18,20,34,56,78,24}, 20);
+//        SlidingWindow slidingWindow = new SlidingWindow();
+////        System.out.println(slidingWindow.longestSubstring("AAAHHIBC", 2));
+//        Strings s = new Strings();
+//        s.reverseString("hello");
+//        Binary binary = new Binary();
+//        binary.solution(1041);
+//        Arrayss arrays = new Arrayss();
+//
+//        arrays.rotateByK(new int[]{3,5,6,7,8}, 3);
+//
+//        BinarySearch binarySearch = new BinarySearch();
+//        binarySearch.search(new int[]{3,5,6,7,8}, 9);
 //        System.out.println(s.palindrome("civic"));
 
 //        Node node1 = new Node(1);
@@ -30,7 +41,9 @@ public class Main {
 //        node4.next = null;
 //
 //        Node head = new List().reverseRecursively(node1);
-//        DynamicProgramming dynamicProgramming = new DynamicProgramming();
+        DynamicProgramming dynamicProgramming = new DynamicProgramming();
+        dynamicProgramming.fibo(5);
+        dynamicProgramming.recursiveStairCaseBottomUp(3, new int[]{1,3,5});
 //        System.out.println( dynamicProgramming.recursiveStairCaseBottomUp(3, new int[]{1,3,5}));
 //
 //        Arrays arrays = new Arrays();
@@ -49,33 +62,33 @@ public class Main {
 //        list.insertAtStart(34);
 //        list.show();
 
-        ArrayList<Status> statuses = new ArrayList<>();
-        Status status1 = new Status(1);
-        Status status2 = new Status(2);
-        Status status3 = new Status(3);
-        statuses.add(status1);
-        statuses.add(status2);
-        statuses.add(status3);
-
-        ArrayList<Holder> container = new ArrayList<>();
-        Holder holder = new Holder("jackie", 1);
-        Holder holder1 = new Holder("tosh", 2);
-        Holder holder2 = new Holder("kesh", 3);
-        Holder holder3 = new Holder("tev", 4);
-        container.add(holder);
-        container.add(holder1);
-        container.add(holder2);
-        container.add(holder3);
-
-        List<Integer> statuseses = statuses.stream()
-                .map(Status::getStatus)
-                .collect(Collectors.toList());
-
-        List<Holder> res = container.stream()
-                .filter(e -> !statuseses.contains(e.getStatus()))
-                .collect(Collectors.toList());
-
-       res.forEach(e -> System.out.println(e.name));
+//        ArrayList<Status> statuses = new ArrayList<>();
+//        Status status1 = new Status(1);
+//        Status status2 = new Status(2);
+//        Status status3 = new Status(3);
+//        statuses.add(status1);
+//        statuses.add(status2);
+//        statuses.add(status3);
+//
+//        ArrayList<Holder> container = new ArrayList<>();
+//        Holder holder = new Holder("jackie", 1);
+//        Holder holder1 = new Holder("tosh", 2);
+//        Holder holder2 = new Holder("kesh", 3);
+//        Holder holder3 = new Holder("tev", 4);
+//        container.add(holder);
+//        container.add(holder1);
+//        container.add(holder2);
+//        container.add(holder3);
+//
+//        List<Integer> statuseses = statuses.stream()
+//                .map(Status::getStatus)
+//                .collect(Collectors.toList());
+//
+//        List<Holder> res = container.stream()
+//                .filter(e -> !statuseses.contains(e.getStatus()))
+//                .collect(Collectors.toList());
+//
+//       res.forEach(e -> System.out.println(e.name));
 
 
 

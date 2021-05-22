@@ -19,6 +19,7 @@ public class DynamicProgramming {
             a = b;
             b = c;
         }
+        System.out.println(a + b);
         return a + b;
     }
 
@@ -79,6 +80,7 @@ public class DynamicProgramming {
                 nums[i] = total;
             }
         }
+        System.out.println(nums[n]);
         return nums[n];
     }
 

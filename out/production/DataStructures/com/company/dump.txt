@@ -1,0 +1,52 @@
+//node.isempty-> true
+left -> max=root = null
+right -> min=root = null
+
+Node -
+int data
+Node left
+Node right
+      7
+   3    10
+max-7,   min-7;
+
+public boolean checkBst(Node node){
+if(node==null) return true;
+return(node, min, max);
+}
+
+public boolean check(Node root, int min, int max){
+    if(node==null) return true;
+    if((min!=null && root.val<=min) || (max!=null && root.val>=max){
+      return false;
+    }
+
+    return check(root.left, min, root.data) && check(root.right, root.data, min);
+
+}
+
+remove duplicates in a string
+empty -> empty string
+
+geeks -> geks --> 2pointer --> start 0, move 1.
+gekes -> geks -->
+
+public String dup(String s){
+if(s.isEmpty){
+return s;}
+}
+int start = 0;
+int end = 1;
+
+char[] arr = new char[s.length()];
+while(start<end && end<s.length()-1){
+if(s.charAt(start) != s.charAt(end)){
+char temp = s.charAt(start);
+char[start+1] = s.charAt(end);
+s.charAt(end) = temp;
+start++
+end++;
+}
+end++;
+}
+}

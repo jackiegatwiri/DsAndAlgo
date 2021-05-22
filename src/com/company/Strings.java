@@ -7,19 +7,23 @@ public class Strings {
         if (s.isEmpty() || s.length() == 1) {
             return s;
         }
-        int length;
-        if (s.length() % 2 == 0) {
-            length = s.length() / 2;
-        } else {
-            length = (s.length() - 1) / 2;
+
+        char[] ar = new char[s.length()];
+        for (int i = 0; i<ar.length; i++){
+            ar[i] = s.charAt(i);
         }
-        char[] c = s.toCharArray();
-        for (int i = 0; i < length; i++) {
-            char temp = c[i];
-            c[i] = c[c.length - (i + 1)];
-            c[c.length - (i + 1)] = temp;
+        int start = 0;
+        int end = s.length()-1;
+        while (start<end){
+           char temp =  ar[start];
+           ar[start] = ar[end];
+           ar[end] = temp;
+           start++;
+           end--;
+
         }
-        return new String(c);
+        System.out.println(Arrays.toString(ar));
+        return Arrays.toString(ar);
     }
 
     public boolean palindrome(String s) {
