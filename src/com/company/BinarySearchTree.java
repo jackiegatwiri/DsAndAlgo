@@ -1,9 +1,7 @@
 package com.company;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
-import java.util.ArrayList;
-import java.util.Stack;
+import java.util.*;
+import java.util.List;
 
 //a node must have a maximum of 2 nodes
 class Node1 {
@@ -127,8 +125,8 @@ class BST {
         ArrayList<Integer> res = new ArrayList<>();
 
         Node1 current = node1;
-        while (node1 != null || !stack.isEmpty()){
-            while(node1 != null){
+        while (current != null || !stack.isEmpty()){
+            while(current != null){
                 stack.push(node1);
                 current = node1.left;
             }
@@ -144,8 +142,8 @@ class BST {
         ArrayList<Integer> res = new ArrayList<>();
 
         Node1 current = node1;
-        while (node1 != null || !stack.isEmpty()){
-            while(node1 != null){
+        while (current != null || !stack.isEmpty()){
+            while(current != null){
                 res.add(current.data);
                 stack.push(node1);
                 current = node1.left;
@@ -154,6 +152,32 @@ class BST {
             current = current.right;
         }
         return res;
+    }
+
+    public List<List<Integer>> levelOrderTraversal(Node1 node1){
+        List<List<Integer>> result = new ArrayList<>();
+        if(node1 == null){
+            return result;
+        }
+        Queue<Node1> q = new LinkedList<>();
+        q.offer(node1);
+        while (!q.isEmpty()){
+            int size = q.size();
+            List<Integer> level = new ArrayList<>();
+            for (int i=0; i<size; i++){
+                Node1 curr = q.poll();
+                level.add(curr.data);
+                if(node1.left != null){
+                    q.add(curr.left);
+                } if(node1.right != null){
+                    q.add(curr.right);
+                }
+            }
+            result.add(level);
+
+        }
+        return result;
+
     }
 
 

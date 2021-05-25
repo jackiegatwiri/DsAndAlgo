@@ -6,6 +6,10 @@ public class Node {
     Node left;
     Node right;
 
+    public Node(int i) {
+        data = i;
+    }
+
 //    public Node(int i) {
 //        data = i;
 //    }

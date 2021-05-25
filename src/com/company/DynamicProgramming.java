@@ -6,7 +6,7 @@ public class DynamicProgramming {
     public int fib(int n) {  //o(2^n)
         if (n == 0) return 0;
         if (n == 1) return 1;
-        return fib(n - 1) + (n - 2);
+        return fib(n - 1) + fib(n - 2);
     }
 
     public int fibo(int n) {   //o(n)

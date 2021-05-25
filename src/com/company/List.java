@@ -23,46 +23,43 @@ public class List {
     Node head;
 
     public void insert(int data) {
-          Node node = new Node();
-          node.data = data;
+        Node node = new Node(data);
 
-          if (head == null){
-              head = node;
-          } else {
-              Node n = head;
-              while (n.next!=null){
-                  n = n.next;
-              }
-              n.next = node;
-          }
+        if (head == null) {
+            head = node;
+        } else {
+            Node n = head;
+            while (n.next != null) {
+                n = n.next;
+            }
+            n.next = node;
+        }
 
     }
 
-    public void show(){
+    public void show() {
         Node node = head;
-        while (node.next!=null){
+        while (node.next != null) {
             System.out.println(node.data);
             node = node.next;
         }
         System.out.println(node.data);
     }
 
-    public void insertAtStart(int data){
-        Node node = new Node();
-        node.data = data;
+    public void insertAtStart(int data) {
+        Node node = new Node(data);
         node.next = head;
         head = node;
     }
 
     public void insertAt(int index, int data) {
-        Node node = new Node();
-        node.data = data;
+        Node node = new Node(data);
         Node n = head;
-        if (index == 0){
+        if (index == 0) {
             insertAtStart(data);
             return;
         }
-        for (int i=0; i<index-1; i++){
+        for (int i = 0; i < index - 1; i++) {
             n = n.next;
         }
         node.next = n.next;
@@ -70,28 +67,28 @@ public class List {
 
     }
 
-    public void delete(int index){
-        if (index == 0){
+    public void delete(int index) {
+        if (index == 0) {
             head = head.next;
         }
 
         Node n = head;
-        for (int i=0; i<index-1; i++){
+        for (int i = 0; i < index - 1; i++) {
             n = n.next;
         }
         Node temp = n.next;
         n.next = temp.next;
-        temp=null;
+        temp = null;
 
     }
 
-    public Node reverse(Node head){
+    public Node reverse(Node head) {
         Node current, prev, next;
         current = head;
         prev = null;
 
 
-        while (current!=null){
+        while (current != null) {
             next = current.next;
             current.next = prev;
             prev = current;
@@ -102,8 +99,8 @@ public class List {
 
     }
 
-    public Node reverseRecursively(Node node){
-        if(node==null || node.next==null){
+    public Node reverseRecursively(Node node) {
+        if (node == null || node.next == null) {
             return node;
         }
         Node head = reverseRecursively(node.next);
@@ -112,7 +109,19 @@ public class List {
         return head;
     }
 
-    
+    public boolean singlyLinkedList(Node node) {
+        Node slow = node;
+        Node fast = node;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
 

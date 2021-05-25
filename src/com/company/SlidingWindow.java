@@ -24,6 +24,7 @@ public class SlidingWindow {
     }
 
     /* Find minimum window size*/
+    //4,2,2,8,7,2,3
     public int findMinWindowSize(int[] num, int k) {
         int minWindowSize = Integer.MAX_VALUE;
         int windowStart = 0;
@@ -48,24 +49,54 @@ public class SlidingWindow {
         int start = 0;
         int end = 0;
         HashMap<Character, Integer> hashMap = new HashMap<>();
-        while (end<s.length()){
-           int count = hashMap.getOrDefault(s.charAt(end), 0) + 1;
-           hashMap.put(s.charAt(end), count);
-           while (hashMap.size() > k){
-               char d = s.charAt(start);
-               if (hashMap.get(d) == 1){
-                   hashMap.remove(d);
-               } else {
-                   hashMap.put(d, hashMap.get(d)-1);
-               }
-               start++;
-           }
-           maxSub = Math.max(maxSub, end-start + 1);
-           end++;
+        while (end < s.length()) {
+            int count = hashMap.getOrDefault(s.charAt(end), 0) + 1;
+            hashMap.put(s.charAt(end), count);
+            while (hashMap.size() > k) {
+                char d = s.charAt(start);
+                if (hashMap.get(d) == 1) {
+                    hashMap.remove(d);
+                } else {
+                    hashMap.put(d, hashMap.get(d) - 1);
+                }
+                start++;
+            }
+            maxSub = Math.max(maxSub, end - start + 1);
+            end++;
 
         }
-
-
         return maxSub;
+    }
+
+    //xyzabcd
+    //append character to a string
+    //check if that string is in letters
+    //if yes move to the end adding to the string - add the maxvalue seen
+    //if no, increment start, reduce current substring
+    public int longestConsecutiveSubstring(String s) {
+        int maxValue = Integer.MIN_VALUE;
+        String hold = "";
+        int currentSum = 0;
+        int windowStart = 0;
+        int windEnd = 0;
+        String letters = "abcdefghijklmnopqrstuvwxyz";
+
+        //xyzabcd
+        while (windEnd<s.length()) {
+            hold = hold + s.charAt(windEnd);
+            while (!letters.contains(hold)) {
+                ++windowStart;
+                hold = hold.substring(windowStart);
+            }
+            currentSum = windEnd - windowStart;
+            maxValue = Math.max(maxValue, currentSum);
+            windEnd++;
+        }
+        return maxValue;
+    }
+
+    public static void main(String[] args) {
+        SlidingWindow slidingWindow = new SlidingWindow();
+        System.out.println(slidingWindow.longestConsecutiveSubstring("xyzabcd"));
     }
 }
